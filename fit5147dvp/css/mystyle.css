@@ -1,0 +1,18 @@
+.text-white{
+    color: #fff;
+}
+
+.h1{
+    font-size:48px;
+}
+
+
+#startBtn{
+    font-size: 24px;
+    margin-top: 200px;
+}
+
+
+.svgCanvas {
+    border: solid 1px
+}
