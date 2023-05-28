@@ -160,7 +160,7 @@ $(function () {
                 d3.selectAll(".bar")
                     .transition()
                     .duration(200)
-                    .style("fill-opacity", 1)
+                    .style("fill-opacity", 0.8)
 
                 d3.selectAll(".state")
                     .transition()

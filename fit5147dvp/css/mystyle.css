@@ -1,13 +1,13 @@
-.text-white{
+.text-white {
     color: #fff;
 }
 
-.h1{
-    font-size:48px;
+.h1 {
+    font-size: 48px;
 }
 
 
-#startBtn{
+#startBtn {
     font-size: 24px;
     margin-top: 200px;
 }
@@ -35,7 +35,7 @@
 }
 
 /* State Cholopalth Legend */
-.legend_title{
+.legend_title {
     font-size: 12px;
     color: rgb(170, 170, 170);
     text-align: center;
@@ -43,7 +43,8 @@
     position: relative;
     top: 15px;
 }
-.state_choropleth_legend{
+
+.state_choropleth_legend {
     position: relative;
     top: 70px;
 
@@ -51,13 +52,16 @@
 
 
 /* State Barchart */
-.barchart{
+.barchart {
     position: relative;
     top: -50px;
 }
 
+.bar {
+    fill-opacity: 0.8;
+}
 
-#state_barchart>svg{
+#state_barchart>svg {
     text-align: center;
 }
 
@@ -71,18 +75,60 @@
     stroke: #000;
     shape-rendering: crispEdges;
 }
+
 .x.axis path {
     display: none;
 }
 
-label,input[type=checkbox]{
+label,
+input[type=checkbox] {
     cursor: pointer;
 }
-.checkbox_text{
+
+.checkbox_text {
     position: relative;
     top: -2px;
 }
 
-.s2cold{
+.s2cold {
     margin-top: 150px;
+}
+
+
+
+
+.s3cont {
+    padding-top: 15%;
+}
+
+
+
+/* Stacked bar chart */
+#stacked_chart {
+    margin-top: 50px;
+}
+
+#stacked_chart_legend {
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+    right: 30px;
+}
+
+.legend-item {
+    margin: 5px;
+    font-size: 12px;
+    align-items: center;
+    text-align: left;
+}
+
+.legend-item div {
+    display: inline-block;
+}
+
+/* Switch */
+.switch_dimension {
+    /* position: absolute;
+    top: 40px; */
+    margin-top: 30px;
 }

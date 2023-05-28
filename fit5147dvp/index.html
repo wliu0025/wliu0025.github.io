@@ -45,8 +45,8 @@
                                 <svg id="state_legend"></svg>
                             </div>
                             <div id="state_choropleth"></div>
-                            
-                            
+
+
                             <!-- Bar chart for states -->
                             <div class="barchart">
                                 <label><input type="checkbox"> <span class="checkbox_text">Sort values</span></label>
@@ -62,7 +62,8 @@
                                 <div class="h2">Job Distribution Across Australian States</div>
                                 <div class="h5">
                                     Firstly, Let's see the distribution of job opportunities across various Australian
-                                    states. The State choroplete provides valuable insights into the number of jobs available in
+                                    states. The State choroplete provides valuable insights into the number of jobs
+                                    available in
                                     each state, allowing us to gain a better understanding of the employment landscape
                                     in Australia.
                                     <br>
@@ -89,7 +90,7 @@
                                     openings, with only 1 opportunity. While this may indicate a relatively smaller job
                                     market in the region, it also presents potential areas for growth and development.
                                     <hr>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -101,10 +102,18 @@
             <div class="swiper-slide s3" style="height: 480px;">
                 <div class="row">
                     <div class="col-md-6  s3pos col-xs-12">
-                        <div class="s3div"></div>
+                        <div class="switch_dimension">
+                            <a href="#" id="button1" class="btn btn-lg btn-warning">Seniority Level</a>
+                            <a href="#" id="button2" class="btn btn-lg btn-danger">Employment Type</a>
+                        </div>
+                        <div id="stacked_chart"></div>
+                        <div id="stacked_chart_legend"></div>
+                        
+                        
                     </div>
                     <div class="col-md-6 col-xs-12 clearfix">
                         <div class="s3cont">
+
                             <h3 class="wsh3 ani resize" swiper-animate-effect="lightSpeedIn"
                                 swiper-animate-duration="0.5s" swiper-animate-delay="0s">颈椎枕</h3>
                             <h4 class="wsh4 ani resize" swiper-animate-effect="bounceInLeft"
@@ -123,16 +132,7 @@
                                 latex
                                 mattresses, etc.).
                             </div>
-                            <div class="enter">
-                                <a href="#">
-                                    <div class="puls-arrow">
-                                        <div class="circle">
-                                            <div class="line-01"></div>
-                                            <div class="line-02"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -248,6 +248,7 @@
 
     <script src="js/state_choropletch.js"></script>
     <script src="js/state_barchart.js"></script>
+    <script src="js/stacked_chart.js"></script>
 
 
 
