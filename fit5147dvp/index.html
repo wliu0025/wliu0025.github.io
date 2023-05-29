@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <!--2.行业动态-->
+            <!--2.State Choropleth + barchart -->
             <div class="swiper-slide s2 swiper-slide-next" style="height: 480px;">
                 <div class="container">
                     <div class="row">
@@ -59,8 +59,8 @@
                         <!-- Right -->
                         <div class="col-md-6 s2cold">
                             <div class="addtwol">
-                                <div class="h2">Job Distribution Across Australian States</div>
-                                <div class="h5">
+                                <div class="h2">Which State has most job oppotunities?</div>
+                                <div class="h5 s3conp">
                                     Firstly, Let's see the distribution of job opportunities across various Australian
                                     states. The State choroplete provides valuable insights into the number of jobs
                                     available in
@@ -98,82 +98,127 @@
                 </div>
 
             </div>
-            <!--3.vifi方案page-->
+            <!--3.Stacked Barchart -->
             <div class="swiper-slide s3" style="height: 480px;">
                 <div class="row">
                     <div class="col-md-6  s3pos col-xs-12">
+                        <!-- 1.Stacked Bar chart -->
                         <div class="switch_dimension">
-                            <a href="#" id="button1" class="btn btn-lg btn-warning">Seniority Level</a>
-                            <a href="#" id="button2" class="btn btn-lg btn-danger">Employment Type</a>
+                            <a href="#" id="button1" class="btn btn-warning">Seniority Level</a>
+                            <a href="#" id="button2" class="btn btn-danger">Employment Type</a>
                         </div>
                         <div id="stacked_chart"></div>
                         <div id="stacked_chart_legend"></div>
-                        
-                        
+
+
                     </div>
                     <div class="col-md-6 col-xs-12 clearfix">
                         <div class="s3cont">
 
-                            <h3 class="wsh3 ani resize" swiper-animate-effect="lightSpeedIn"
-                                swiper-animate-duration="0.5s" swiper-animate-delay="0s">颈椎枕</h3>
-                            <h4 class="wsh4 ani resize" swiper-animate-effect="bounceInLeft"
-                                swiper-animate-duration="1s" swiper-animate-delay="0.5s">泰国进口，采用天然乳胶，天然好品质<br>Thailand
-                                import, USES the natural latex, natural good quality</h4>
-                            <div class="s3conp ani resize" swiper-animate-effect="fadeInUp"
-                                swiper-animate-duration="1.5s" swiper-animate-delay="1s">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;海南卓宸进出口贸易有限公司，坐落在海南省海口市，是一家以进口各国特色商品为主的公
-                                司，目前公司的一项主营业务是进口泰国原装纯天然乳胶制品（乳胶枕、乳胶床垫等）。<br><br>
+                            <div class="ani resize h2" swiper-animate-effect="lightSpeedIn"
+                                swiper-animate-duration="0.5s" swiper-animate-delay="0s">What is most hottest job type?
+                            </div>
 
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hainan ZhuoChen import and export trade co.,
-                                LTD., located in haikou city of hainan province,
-                                is a company, specializing in importing countries special goods at present, the company
-                                is one
-                                of the main business import Thailand original pure natural latex products (latex pillow,
-                                latex
-                                mattresses, etc.).
+
+                            <div class="s3conp ani resize h5" swiper-animate-effect="bounceInLeft"
+                                swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">In this section,we explore
+                                the
+                                distribution of job roles
+                                within the fields of Data Analysis, Data Engineering, and Data Science. <br>
+                                The stacked bar charts provide an overview of the number of job
+                                positions available across different experience levels and different employment type
+                                within each role.
+                                <br>
+                                Obviously, <span style="color:red">Data engineer</span> is the hottest type of jobs in
+                                Australia.
+
+                            </div>
+                            <hr>
+
+
+
+                            <div class="s3conp ani resize h5" swiper-animate-effect="fadeInUp"
+                                swiper-animate-duration="1s" swiper-animate-delay="1s">
+                                <div class="type_of_job">Data Analysts:</div>
+                                <div id="content1">
+                                    The majority of Data Analyst roles are available at the Associate and Mid-Senior
+                                    levels, with 61 and 59 positions respectively. Entry-level positions follow closely
+                                    behind with 55 openings. There is a single Director-level position and an Internship
+                                    opportunity
+                                    within the Data Analyst field.
+                                </div>
+
+                                <hr>
+
+                                <div class="type_of_job">Data Engineers:</div>
+                                <div id="content2">
+                                    In the Data Engineering domain, Mid-Senior level positions account for the highest
+                                    number with 164
+                                    openings, followed by Associate positions with 84 opportunities. Entry-level roles
+                                    positions is 83. There are no Director-level positions or Internship
+                                    opportunities within Data Engineering.
+                                </div>
+                                <hr>
+
+
+                                <div class="type_of_job">Data Scientists:</div>
+                                <div id="content3">
+                                    For Data Scientists,Mid-Senior level positions have the highest count with 38
+                                    openings, while Associate
+                                    positions come in second with 26 opportunities. Entry-level roles and 12 positions
+                                    respectively. Similar to Data Analysts, there is a
+                                    single Director-level position but no Internship opportunities in the Data Science
+                                    field.
+                                </div>
+                                <hr>
                             </div>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- 4. -->
+            <!-- 4. Map -->
             <div class="swiper-slide s4" style="height: 480px;">
                 <div class="row">
                     <div class="col-md-6 col-xs-12 clearfix">
                         <div class="s3cont">
-                            <h3 class="wsh3 ani resize" swiper-animate-effect="rotateInDownLeft"
-                                swiper-animate-duration="0.5s" swiper-animate-delay="0s">颈椎枕</h3>
-                            <h4 class="wsh4 ani resize" swiper-animate-effect="bounceInDown"
-                                swiper-animate-duration="1s" swiper-animate-delay="0.5s">泰国进口，采用天然乳胶，天然好品质<br>Thailand
-                                import, USES the natural latex, natural good quality</h4>
-                            <div class="s3conp ani resize" swiper-animate-effect="fadeInUp"
-                                swiper-animate-duration="1.5s" swiper-animate-delay="1s">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;海南卓宸进出口贸易有限公司，坐落在海南省海口市，是一家以进口各国特色商品为主的公
-                                司，目前公司的一项主营业务是进口泰国原装纯天然乳胶制品（乳胶枕、乳胶床垫等）。<br><br>
+                            <div class="ani resize h2" swiper-animate-effect="rotateInDownLeft"
+                                swiper-animate-duration="0.5s" swiper-animate-delay="0s">How jobs types vary across
+                                different cities?</div>
+                            <div class="wsh4 ani resize text-left h5" swiper-animate-effect="bounceInDown"
+                                swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+                                
+                            </div>
+                            <hr>
+                            <div class="s3conp ani resize text-left h5" swiper-animate-effect="fadeInUp"
+                                swiper-animate-duration="1s" swiper-animate-delay="1s">
+                                Melbourne and Sydney Stand Out: Melbourne and Sydney emerge as the prominent cities for
+                                Data Analysis roles.
+                                These cities demonstrate a robust demand for data-driven professionals, reflecting the
+                                strong presence of industries that require data analysis expertise.
+                                <hr>
+                                Brisbane demonstrates a balanced distribution of Data Analysis roles with 47 positions
+                                available, including Data Engineer (31), Data Scientist (7), and Data Analyst (9)
+                                positions.
+                                <hr>
+                                Perth excels in Data Engineering, providing 54 positions, while also offering Data
+                                Scientist roles (8) and a moderate number of Data Analyst positions (18).
+                                <hr>
+                                Adelaide and Canberra showcase a balanced distribution across Data Analysis, Data
+                                Engineering, and Data Science roles, providing diverse opportunities in these fields.
+                                <hr>
+                                Other cities like Hobart, Newcastle, Richmond, and Lucknow offer smaller but varied job
+                                opportunities in the data field, contributing to the overall data job market in
+                                Australia.
+                            </div>
 
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hainan ZhuoChen import and export trade co.,
-                                LTD., located in haikou city of hainan province,
-                                is a company, specializing in importing countries special goods at present, the company
-                                is one
-                                of the main business import Thailand original pure natural latex products (latex pillow,
-                                latex
-                                mattresses, etc.).
-                            </div>
-                            <div class="enter">
-                                <a href="#">
-                                    <div class="puls-arrow">
-                                        <div class="circle">
-                                            <div class="line-01"></div>
-                                            <div class="line-02"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
                         </div>
                     </div>
                     <div class="col-md-6  s3pos col-xs-12">
-                        <div class="s4div"></div>
+                        <!-- Map -->
+                        <div id="map1"></div>
+                        <div id="map2"></div>
+
                     </div>
                 </div>
             </div>
@@ -246,9 +291,143 @@
     <script src="js/d3.min.js"></script>
     <script src="https://unpkg.com/textures@1.2.0/dist/textures.js"></script>
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBFhmcNqq3BPYJFPbFEFuwupgR96eYfWQ&callback=initMap&v=weekly"
+        defer></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
+
     <script src="js/state_choropletch.js"></script>
     <script src="js/state_barchart.js"></script>
     <script src="js/stacked_chart.js"></script>
+    <script>
+        //Importing Data into Maps and add markers
+        //https://developers.google.com/maps/documentation/javascript/importing_data
+        function initMap() {
+
+            d3.csv("merged.csv").then(function (data) {
+
+                const locations = data.map(location => ({
+                    lat: parseFloat(location.latitude),
+                    lng: parseFloat(location.longitude),
+                    city: location.City
+                }));
+
+                const groupedData = data.reduce((acc, obj) => {
+                    const { City, Job_Type } = obj;
+
+                    // Check if a city entry already exists in the result array
+                    const existingCity = acc.find(item => item.city === City);
+
+                    // If city entry exists, increment the corresponding job type count
+                    if (existingCity) {
+                        existingCity[Job_Type] = (existingCity[Job_Type] || 0) + 1;
+                        existingCity.total++;
+                    } else {
+                        // If city entry doesn't exist, create a new entry
+                        const newCity = { city: City, total: 1 };
+                        newCity[Job_Type] = 1;
+                        acc.push(newCity);
+                    }
+
+                    return acc;
+                }, []);
+                groupedData.forEach(obj => {
+                    if (!obj["Data Analyst"]) {
+                        obj["Data Analyst"] = 0
+                    }
+                    if (!obj["Data Engineer"]) {
+                        obj["Data Engineer"] = 0
+                    }
+                    if (!obj["Data Scientist"]) {
+                        obj["Data Scientist"] = 0
+                    }
+                });
+                console.log(groupedData)
+
+
+
+                const map = new google.maps.Map(document.getElementById("map1"), {
+                    zoom: 4,
+                    center: { lat: -27.15, lng: 133.25 },
+                });
+                const map2 = new google.maps.Map(document.getElementById("map2"), {
+                    zoom: 4,
+                    center: { lat: -27.15, lng: 133.25 },
+                });
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: "",
+                    disableAutoPan: true,
+                });
+
+
+
+                //Map1
+                const markers = locations.map((position, i) => {
+                    const marker = new google.maps.Marker({
+                        position,
+                    });
+
+                    // markers can only be keyboard focusable when they have click listeners
+                    // open info window when marker is clicked
+                    marker.addListener("click", (event) => {
+                        for (let obj of groupedData) {
+                            if (obj.city == position.city) {
+                                infoWindow.setContent("<b>City/Region: </b>" + position.city +
+                                    "</br>" + "<b>Total jobs: </b>" + obj.total +
+                                    "</br>" + "<b>Data Analyst: </b>" + obj["Data Analyst"] +
+                                    "</br>" + "<b>Data Engineer: </b>" + obj["Data Engineer"] +
+                                    "</br>" + "<b>Data Scientist: </b>" + obj["Data Scientist"]);
+                                break;
+                            }
+                        }
+                        infoWindow.open(map, marker);
+                    });
+                    return marker;
+                });
+
+
+                const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
+
+
+                // Add some markers to the map2.
+                const markers2 = locations.map((position, i) => {
+
+                    //const latLng = new google.maps.LatLng(position[1], position[0]);
+                    const marker = new google.maps.Marker({
+                        position,
+                        map: map2,
+                    });
+
+                    // markers can only be keyboard focusable when they have click listeners
+                    // open info window when marker is clicked
+                    marker.addListener("click", (event) => {
+                        for (let obj of groupedData) {
+                            if (obj.city == position.city) {
+                                infoWindow.setContent("<b>City/Region: </b>" + position.city +
+                                    "</br>" + "<b>Total jobs: </b>" + obj.total +
+                                    "</br>" + "<b>Data Analyst: </b>" + obj["Data Analyst"] +
+                                    "</br>" + "<b>Data Engineer: </b>" + obj["Data Engineer"] +
+                                    "</br>" + "<b>Data Scientist: </b>" + obj["Data Scientist"]);
+                                break;
+                            }
+                        }
+                        infoWindow.open(map2, marker);
+                    });
+
+                    return marker;
+                });
+
+
+            })
+
+
+        }
+
+        window.initMap = initMap;
+    </script>
 
 
 

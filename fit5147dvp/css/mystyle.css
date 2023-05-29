@@ -46,8 +46,12 @@
 
 .state_choropleth_legend {
     position: relative;
-    top: 70px;
+    top: 30px;
 
+}
+#state_choropleth{
+    position: relative;
+    top: -70px;
 }
 
 
@@ -91,21 +95,21 @@ input[type=checkbox] {
 }
 
 .s2cold {
-    margin-top: 150px;
+    margin-top: 80px;
 }
 
 
 
 
 .s3cont {
-    padding-top: 15%;
+    padding-top: 7%;
 }
 
 
 
 /* Stacked bar chart */
 #stacked_chart {
-    margin-top: 50px;
+    margin-top: 25%;
 }
 
 #stacked_chart_legend {
@@ -128,7 +132,26 @@ input[type=checkbox] {
 
 /* Switch */
 .switch_dimension {
-    /* position: absolute;
-    top: 40px; */
-    margin-top: 30px;
+    position: absolute;
+    top: 70px;
+    right: 200px;
+}
+
+.type_of_job{
+    font-size: 18px;
+}
+
+
+
+/* Map using api */
+#map1,#map2 {
+    width: 600px;
+    height: 48%;
+}
+#map2{
+    margin-top: 10px;
+}
+
+.text-left{
+    text-align: left !important;
 }
