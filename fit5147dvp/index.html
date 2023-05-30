@@ -121,7 +121,7 @@
 
 
                             <div class="s3conp ani resize h5" swiper-animate-effect="bounceInLeft"
-                                swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">In this section,we explore
+                                swiper-animate-duration="1s" swiper-animate-delay="0.3s">In this section,we explore
                                 the
                                 distribution of job roles
                                 within the fields of Data Analysis, Data Engineering, and Data Science. <br>
@@ -185,13 +185,10 @@
                             <div class="ani resize h2" swiper-animate-effect="rotateInDownLeft"
                                 swiper-animate-duration="0.5s" swiper-animate-delay="0s">How jobs types vary across
                                 different cities?</div>
-                            <div class="wsh4 ani resize text-left h5" swiper-animate-effect="bounceInDown"
-                                swiper-animate-duration="1s" swiper-animate-delay="0.5s">
-                                
-                            </div>
+                            
                             <hr>
                             <div class="s3conp ani resize text-left h5" swiper-animate-effect="fadeInUp"
-                                swiper-animate-duration="1s" swiper-animate-delay="1s">
+                                swiper-animate-duration="1s" swiper-animate-delay="0.5s">
                                 Melbourne and Sydney Stand Out: Melbourne and Sydney emerge as the prominent cities for
                                 Data Analysis roles.
                                 These cities demonstrate a robust demand for data-driven professionals, reflecting the
@@ -222,36 +219,35 @@
                     </div>
                 </div>
             </div>
-            <!-- 5 -->
-            <div class="swiper-slide s5" style="height: 480px;">
+            <!-- 5. Word Cloud -->
+            <div class="swiper-slide" style="height: 480px;">
                 <div class="row">
+                    <!-- left -->
                     <div class="col-md-6 col-xs-12 clearfix">
                         <div class="s3cont">
-                            <h3 class="wsh3 ani resize" swiper-animate-effect="fadeInDown"
-                                swiper-animate-duration="0.5s" swiper-animate-delay="0s">诺澜帕特</h3>
-                            <h4 class="wsh4 ani resize" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
-                                swiper-animate-delay="0.5s">泰国进口，采用天然乳胶，天然好品质<br>Thailand import, USES the natural
-                                latex, natural good quality</h4>
-                            <div class="s3conp ani resize" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s"
-                                swiper-animate-delay="1s">
-                                海南卓宸进出口贸易有限公司，坐落在海南省海口市，是一家以进口各国特色商品为主的公
-                                司，目前公司的一项主营业务是进口泰国原装纯天然乳胶制品（乳胶枕、乳胶床垫等）。<br><br>
-                            </div>
-                            <div class="enter">
-                                <a href="#">
-                                    <div class="puls-arrow">
-                                        <div class="circle">
-                                            <div class="line-01"></div>
-                                            <div class="line-02"></div>
-                                        </div>
-                                    </div>
-                                </a>
+                            <div class="ani resize h2" swiper-animate-effect="fadeInDown"
+                                swiper-animate-duration="0.5s" swiper-animate-delay="0s">How jobs types vary across
+                                different cities?</div>
+                            <hr>
+                            <div class="s3conp ani resize text-left h5" swiper-animate-effect="zoomIn"
+                                swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+
+
+
                             </div>
                         </div>
                     </div>
+                    <!-- Right -->
+
+                    <div class="col-md-6  s3pos col-xs-12">
+                        <!-- 1.Word Cloud -->
+                        <div id="wordCloud"></div>
+                    
+
+                    </div>
                 </div>
             </div>
-            <!-- 6 -->
+            <!-- 6. About -->
             <div class="swiper-slide s6">
                 <div class="row">
                     <div class="col-md-12 col-xs-12 clearfix" style="height: 50%">
@@ -301,6 +297,9 @@
     <script src="js/state_choropletch.js"></script>
     <script src="js/state_barchart.js"></script>
     <script src="js/stacked_chart.js"></script>
+
+    <script src="js/wordCloud.js"></script>
+    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
     <script>
         //Importing Data into Maps and add markers
         //https://developers.google.com/maps/documentation/javascript/importing_data
