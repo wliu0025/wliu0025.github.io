@@ -185,7 +185,7 @@
                             <div class="ani resize h2" swiper-animate-effect="rotateInDownLeft"
                                 swiper-animate-duration="0.5s" swiper-animate-delay="0s">How jobs types vary across
                                 different cities?</div>
-                            
+
                             <hr>
                             <div class="s3conp ani resize text-left h5" swiper-animate-effect="fadeInUp"
                                 swiper-animate-duration="1s" swiper-animate-delay="0.5s">
@@ -224,14 +224,26 @@
                 <div class="row">
                     <!-- left -->
                     <div class="col-md-6 col-xs-12 clearfix">
-                        <div class="s3cont">
-                            <div class="ani resize h2" swiper-animate-effect="fadeInDown"
-                                swiper-animate-duration="0.5s" swiper-animate-delay="0s">How jobs types vary across
-                                different cities?</div>
+                        <!-- 1.Word Cloud -->
+                        <div id="wordCloud"></div>
+                        <!-- text -->
+                        <div class="s3cont word-text">
+                            <div class="ani resize h2" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s"
+                                swiper-animate-delay="0s">What the most needed skills?</div>
                             <hr>
                             <div class="s3conp ani resize text-left h5" swiper-animate-effect="zoomIn"
                                 swiper-animate-duration="1s" swiper-animate-delay="0.5s">
-
+                                In today's data-driven world, the skills required for various data-related roles have
+                                been evolving rapidly. To succeed in the field of data science, professionals need a
+                                solid foundation in SQL, Python, Azure, and AWS. These four skills have emerged as the
+                                most popular and sought-after competencies across the industry.
+                                <hr>
+                                In summary, the world of data science demands a diverse skill set that grows in
+                                complexity as one progresses from data analyst to data engineer and finally to data
+                                scientist. While SQL and Python form the foundation for all roles, data engineers and
+                                data scientists benefit from expertise in cloud platforms like Azure and AWS, as well as
+                                advanced coding skills.
+                                <hr>
 
 
                             </div>
@@ -240,10 +252,10 @@
                     <!-- Right -->
 
                     <div class="col-md-6  s3pos col-xs-12">
-                        <!-- 1.Word Cloud -->
-                        <div id="wordCloud"></div>
-                    
-
+                        <!-- 2.Tree Diagram -->
+                        <div>
+                            <svg id="tree-diagram"></svg>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -251,27 +263,43 @@
             <div class="swiper-slide s6">
                 <div class="row">
                     <div class="col-md-12 col-xs-12 clearfix" style="height: 50%">
-                        <div class="s3cont">
-                            <h3 class="wsh3 ani resize" swiper-animate-effect="flip" swiper-animate-duration="0.5s"
-                                swiper-animate-delay="0s">诺澜帕特</h3>
-                            <h4 class="wsh4 ani resize" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s"
-                                swiper-animate-delay="0.5s">泰国进口，采用天然乳胶，天然好品质<br>Thailand import, USES the natural
-                                latex, natural good quality</h4>
-                            <div class="s3conp ani resize" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s"
-                                swiper-animate-delay="1s">
-                                海南卓宸进出口贸易有限公司，坐落在海南省海口市，是一家以进口各国特色商品为主的公
-                                司，目前公司的一项主营业务是进口泰国原装纯天然乳胶制品（乳胶枕、乳胶床垫等）。
+                        <div class="s3cont lastpage">
+                            <h3 class="wsh3 ani resize" swiper-animate-effect="flip" swiper-animate-duration="0.3s"
+                                swiper-animate-delay="0s">Data Scource</h3>
+
+                            <div class="s3conp ani resize" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+                                swiper-animate-delay="0.3s">
+                                <a target="_blank"
+                                    href="https://www.kaggle.com/datasets/austinnguyen00/data-jobs-in-australia?resource=download">https://www.kaggle.com/datasets/austinnguyen00/data-jobs-in-australia?resource=download</a>
+                                <br>
+                                <a target="_blank"
+                                    href="https://www.kaggle.com/datasets/maryamalizadeh/worldcities-australia">https://www.kaggle.com/datasets/maryamalizadeh/worldcities-australia</a>
                             </div>
 
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-xs-12 clearfix s6divw">
-                        <div class="row s6divr">
-                            <span>Wei Liu © 29401429</span>
+                            <h3 class="wsh3 ani resize" swiper-animate-effect="flip" swiper-animate-duration="0.3s"
+                                swiper-animate-delay="0s" style="margin-top: 20px;">My Project Repository</h3>
+                            <div class="s3conp ani resize" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+                                swiper-animate-delay="0.3s">
+                                <a target="_blank"
+                                    href="https://github.com/wliu0025/wliu0025.github.io">https://github.com/wliu0025/wliu0025.github.io</a>
+                            </div>
+
+                            <h3 class="wsh3 ani resize" swiper-animate-effect="flip" swiper-animate-duration="0.3s"
+                                swiper-animate-delay="0s" style="margin-top: 20px;">Deployed Website</h3>
+                            <div class="s3conp ani resize" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+                                swiper-animate-delay="0.3s">
+                                <a target="_blank" class="btn btn-success"
+                                    href="https://wliu0025.github.io/fit5147dvp/">Click Here!</a>
+                            </div>
+
+                            <span class="author">Wei Liu © 29401429</span>
+
+
 
                         </div>
-
                     </div>
+
+
                 </div>
 
             </div>
@@ -299,6 +327,7 @@
     <script src="js/stacked_chart.js"></script>
 
     <script src="js/wordCloud.js"></script>
+    <script src="js/tree.js"></script>
     <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
     <script>
         //Importing Data into Maps and add markers

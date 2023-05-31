@@ -159,4 +159,37 @@ input[type=checkbox] {
 
 
 /* Word Cloud */
+#wordCloud{
+    position: relative;
+    top: -10px;
+}
+.word-text{
+    padding-top: 0%;
+    position: relative;
+    top: -50px;
+
+}
+/* Tree diagram */
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1px;
+}
+
+.circle-highlighted {
+    stroke: red;
+    stroke-width: 3;
+}
+
+.label {
+    font: 12px sans-serif;
+    fill: grey;
+}
+
+
+/* Data source */
+ .author{
+    position: relative;
+    top: 100px;
+}
 
