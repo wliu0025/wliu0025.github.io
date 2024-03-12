@@ -1,4 +1,4 @@
-# Cakephp 
+# Cakephp Notes
 
 Author: Wei Liu
 
