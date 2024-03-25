@@ -293,7 +293,7 @@ $builder->connect('/', ['controller' => 'Bookings', 'action' => 'choose']);
 
 `Define some rules and associations`
 
-![image-20240323142238538](cakephp.assets/image-20240323142238538.png)
+<img src="cakephp.assets/image-20240323142238538.png" alt="image-20240323142238538" style="zoom:50%;" />
 
 
 
@@ -314,7 +314,7 @@ Turn off broswer default validation (This field cannot be left empty)
  echo $this->Form->control('title',['novalidate'=>True]);
 ```
 
-<img src="cakephp.assets/image-20240325145150836.png" alt="image-20240325145150836" style="zoom:50%;" />
+<img src="cakephp.assets/valiodationpopup.png" alt="image-20240325145150836" style="zoom:50%;" />
 
 
 
@@ -547,9 +547,11 @@ var_dump() is for checking arrays and objects
 
 >Get request: search by name
 
-![img](cakephp.assets/m803wbNQYz7ElPaTZ1qD6ndrXe3f98E96bFk6EYd03SG2mQrdfHBA54Zw1l4n-zAuRzxhTyQDO4_ujtQgNB7qko5L_fXn1Fe5tU2KPxasvfj2WaboGsCyCWzs82d2Z4kV_MSke8iH20QfGfJCNy0iw.png)
+![img](cakephp.assets/searchfunction.png)
 
-![img](cakephp.assets/OauEHwB1V5lwDyJmK9xs5v-KW2NiOatnEEroaIpWZ0-3m2Dp-IgTAiJ6uEO-K12hFcOXJNRXAGBQAHHbTa5sHoE1_1uus8B-M38wEusxP_0BiMf3Fws0wrqeDpyInWnDq9w6Tc_xaJFW52BIynLX0g.png)
+![img](cakephp.assets/get_searchbyname.png)
+
+
 
 
 
