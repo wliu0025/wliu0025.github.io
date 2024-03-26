@@ -47,24 +47,26 @@ CakePHP Official Documentation：https://book.cakephp.org/5/en/index.html
 
 ## 3.Download the Cakephp project
 
-### 3.1 Download from Gitlab
+(Mac)find and enter the **www** folder, open the terminal
 
-for **developing** purpose
+(Windows)In xampp, find and enter the **htdocs** folder, open the terminal
+
+### 3.1 Download from Github
+
+For **developing** purpose
 
 ```bash
-git clone <project url>
+git clone https://github.com/wliu0025/phpreview.git
 composer install
 ```
 
-First: git build new project + clone + build cakephp (same name)+ push
+If first time, build new repository in github+ clone + build cakephp (same name)+ push
 
 
 
 ### 3.2 Download from local
 
-For **learning** and testing purpose
-
-1.Under the destination folder,open terminal
+For **learning** purpose, Create new Cakephp project
 
 ```bash
 composer self-update && composer create-project cakephp/app <project_name>
@@ -73,7 +75,33 @@ composer self-update && composer create-project cakephp/app <project_name>
 
 
 
-2.log in the local database to create a user in the Terminal 
+
+
+------
+
+1.Start local server
+
+(MAC)the server automatically runs once you download the environment
+
+(Windows) Open xampp by clicking run as admin, start Apache and MySQL
+
+<img src="cakephp.assets/image-20240325213513034.png" alt="image-20240325213513034" style="zoom: 50%;" />
+
+>if cannot start,port issue,change the port 
+
+https://stackoverflow.com/questions/18300377/how-to-solve-error-apache-shutdown-unexpectedly
+
+>remove the process
+
+https://stackoverflow.com/questions/39632667/how-do-i-remove-the-process-currently-using-a-port-on-localhost-in-windows
+
+
+
+2.Enter the database
+
+(Windows)Click “Admin” directly and enter the phpmyadmin
+
+(Mac)log in the local database to create a user in the Terminal 
 
 ```mysql
 mysql -uroot
@@ -98,7 +126,7 @@ Test initial website: http://localhost:8080/<project_name>
 
 ## 4.Project structure
 
-![image-20240312203923891](cakephp.assets/image-20240312203923891.png)
+<img src="cakephp.assets/image-20240312203923891.png" alt="image-20240312203923891" style="zoom:50%;" />
 
 
 
@@ -114,9 +142,11 @@ following them can make your life a lot easier
 - FK to be called a singular table name followed by _id, e.g. customer_id in the orders table 
 - Attribute with two or more words are underscored, e.g. first_name
 
->例子：customers, orders,products
+>例子1：customers, orders,products
 
 ![img](cakephp.assets/database_convention.png)
+
+
 
 
 
