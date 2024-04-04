@@ -203,7 +203,7 @@ https://www.youtube.com/watch?v=MDl5lSJWBg8&ab_channel=TheKnowledgeKitten
 
 
 
-**SSH:** 
+**SSH(remote log in aws server):** 
 
 ```
 ssh  -i "key3.pem" bitnami@13.211.137.41
@@ -211,7 +211,7 @@ ssh  -i "key3.pem" bitnami@13.211.137.41
 
 
 
-**Db:**
+**Connect server database:**
 
 ```
 ssh -N -L 8888:127.0.0.1:80 -i "key3.pem" bitnami@13.211.137.41
@@ -222,13 +222,6 @@ ssh -N -L 8888:127.0.0.1:80 -i "key3.pem" bitnami@13.211.137.41
 root
 
 Pwd: 29Lo/Py/+@If
-
-```mysql
-# create datbase
-create database edupioneer;
-```
-
-
 
 
 
@@ -448,7 +441,7 @@ $publishers=$this->Titles->Publishers->find('list',['limit'=>200,'order'=>'Publi
 
 >换layout
 
-Controller
+方法1:Controller
 
 ```php
 //You can use this method to perform logic that needs to happen before each controller action.
@@ -459,6 +452,14 @@ public function beforeFilter(\Cake\Event\EventInterface $event)
   $this->viewBuilder()->setLayout('adminManageLayout');
 }
 ```
+
+方法2: View
+
+```php
+$this->layout = 'loggedin';
+```
+
+
 
 
 
@@ -480,67 +481,7 @@ $this->disableAutoLayout();
 
 
 
-
-
-
-
-## 11.Home + Default共享组件
-
-1. **Home page**: src/Template/Pages/home.php + PagesController.php
-
-2. 静态页面(**abutus,contactus**):  /Pages/aboutus 
-
-3. **Default**: src/Template/Layout/default.php
-
-   It is the ==template== for how our site is presented. We will include header/menu/footer that will appear on every page
-
-   ```php+HTML
-   <?php
-   $cakeDescription = 'PHPReview: review the cakephp';
-   ?>
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <?= $this->Html->charset() ?>
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-       <title>
-           <?= $cakeDescription ?>:
-           <?= $this->fetch('title') ?>
-       </title>
-     
-     	<!-- webroot/favicon.ico -->
-       <?= $this->Html->meta('icon') ?>
-   
-     	<!-- import css files -->
-       <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
-   
-       <?= $this->fetch('meta') ?>
-       <?= $this->fetch('css') ?>
-       <?= $this->fetch('script') ?>
-   </head>
-   <body>
-       <nav class="top-nav">
-           <div class="top-nav-title">
-             <!-- /phpreview/ -->
-               <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
-           </div>
-           
-       </nav>
-       <main class="main">
-           <div class="container">
-               <?= $this->Flash->render() ?>
-               <?= $this->fetch('content') ?>
-           </div>
-       </main>
-       <footer>
-       </footer>
-   </body>
-   </html>
-   ```
-
-   
-
-## 12.View
+## 11.View
 
 `view: h()`
 
@@ -598,3 +539,202 @@ $query=$this->Records->find();
 View:
 
 ![img](cakephp.assets/S3CtdUTLYl_0gsZJjGs7Fq2P7XLz0ajxie_aTlnQ5zdA1L0b479hkzHHzXUCtiTy_k6dSaHomR5VFRSOI0fzamcba25vl5oevxGLywMG0dv3MvgOcMnFKW8rRcyyg6smCt575CNvMiPiKWVuPA_bJw.png)
+
+
+
+
+
+## 12.Home + Default共享组件
+
+1. **Home page**: src/Template/Pages/home.php + PagesController.php
+
+2. 静态页面(**abutus,contactus**):  /Pages/aboutus 
+
+3. **Default page**: src/Template/Layout/default.php
+
+   Template:  header/menu/footer that will appear on every page
+
+   ```php+HTML
+   <?php
+   $cakeDescription = 'PHPReview: review the cakephp';
+   ?>
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <?= $this->Html->charset() ?>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <title>
+           <?= $cakeDescription ?>:
+           <?= $this->fetch('title') ?>
+       </title>
+     
+     	<!-- webroot/favicon.ico -->
+       <?= $this->Html->meta('icon') ?>
+   
+     	<!-- import css files -->
+       <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
+   
+       <?= $this->fetch('meta') ?>
+       <?= $this->fetch('css') ?>
+       <?= $this->fetch('script') ?>
+   </head>
+   <body>
+       <nav class="top-nav">
+           <div class="top-nav-title">
+             <!-- /phpreview/ -->
+               <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+           </div>
+           
+       </nav>
+       <main class="main">
+           <div class="container">
+               <?= $this->Flash->render() ?>
+               <?= $this->fetch('content') ?>
+           </div>
+       </main>
+       <footer>
+       </footer>
+   </body>
+   </html>
+   ```
+
+>Icon
+
+```php
+<?= $this->Html->meta(
+    'favicon.ico',
+    '/favicon.ico',
+    ['type' => 'icon']
+); ?>
+```
+
+>Title
+
+```php
+$this->assign('title', 'View Active Users');
+```
+
+>导入css，js,image
+
+```php
+<?= $this->Html->css(['bootstrap.min', 'bootstrap-icons/bootstrap-icons']) ?>
+  
+<?= $this->Html->script(['bootstrap.bundle.min', 'validate']); ?>
+  
+<?= $this->Html->image('hero-bg.jpg', ['alt' => 'A girl ready to plan her career']); ?>
+```
+
+>link导航
+
+```php
+<li><a href="<?= $this->Url->build('/pages/contact') ?>" class="active">contact</a></li>
+
+
+echo $this->Html->link('Enter',
+    '/pages/home',
+    ['class' => 'button', 'target' => '_blank']
+);
+echo $this->Html->link('Dashboard',
+    ['controller' => 'Pages', 'action' => 'home', '_full' => true]
+);
+```
+
+主页
+
+```php+HTML
+<a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+```
+
+
+
+><?= $this->fetch('css') ?>
+><?= $this->fetch('script') ?>
+>
+>导入的是在具体page里的css,js
+
+```php
+<?= $this->Html->css(['evo-calendar', 'booking'], ['block' => true]); ?>
+
+<?= $this->Html->script('evo-calendar.min', ['block' => true]) ?>
+```
+
+
+
+>jquery导入问题
+
+方法一： 在default的header里导入
+
+```php
+<!-- Common jquery plugin -->
+<?= $this->Html->script('jquery-3.7.1.min'); ?>
+```
+
+```html
+<script>
+	$( () => {
+    $('.test').addClass('a');
+  })
+</script>
+```
+
+方法二：jquery正常导入，block=true
+
+```php
+<?php
+$this->Html->scriptStart(['block' => 'script']);// Start a script block
+?>
+$( () => {
+$('.test').addClass('a');
+})
+<?php
+$this->Html->scriptEnd(); // End the script block
+?>
+```
+
+
+
+
+
+
+
+### 1.Create new page
+
+文件名：career_exploration
+
+action名字：careerExploration
+
+
+
+### 2.Create new folder
+
+文件夹名：Careeers
+
+文件名: index.php
+
+建controller： CareersController.php
+
+```php
+class CareersController extends AppController
+{
+  public function index()
+  {
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
