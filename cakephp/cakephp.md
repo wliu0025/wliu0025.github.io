@@ -1570,12 +1570,10 @@ $('#ANZSCO_Title1').change(function () {
 
 
 
-`fontawesome`
+`fontawesome 6`
 
 ```html
-<!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 ```
 
 
@@ -2041,5 +2039,22 @@ define('RECAPTCHAV3_SECRET', '');
 
 
 
+## 19.Accessibility
+
+userway: https://manage.userway.org/widget/my-sites/p/1
+
+```html
+<script src="https://cdn.userway.org/widget.js" data-account="du7FseHoVd"></script>
+```
 
 
+
+## 20.Chatbot
+
+Tidio chatbot: https://www.tidio.com/panel/settings/live-chat/appearance
+
+```html
+<script src="//code.tidio.co/s3zqscnhvxny5337qsm05vzd79ouicnq.js" async></script>
+```
+
+flow是用来设置机器人的
