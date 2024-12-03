@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massage Shop Manager</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .countdown.green {
+            color: green;
+        }
+
+        .countdown.yellow {
+            color: rgb(124, 124, 0);
+        }
+
+        .countdown.red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Jobs Management</h1>
+
+        <!-- New Session Form -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">New Jobs</h3>
+                <form id="sessionForm">
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="girl" class="form-label">Girl</label>
+                            <select id="girl" class="form-select form-select-lg">
+                                <option value="">Select</option>
+                                <option value="Tina-china">Tina-china</option>
+                                <option value="Candy-china">Candy-china</option>
+                                <option value="Judy-Korea">Judy-Korea</option>
+                                <option value="Mina-Vietnam">Mina-Vietnam</option>
+                                <option value="Vivi-Vietnam">Vivi-Vietnam</option>
+                                <option value="Kelly-HK">Kelly-HK</option>
+                                <option value="Tiffany-Singapore">Tiffany-Singapore</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="duration" class="form-label">Duration</label>
+                            <select id="duration" class="form-select form-select-lg">
+                                <option value="">Select</option>
+                                <option value="Golen-30mins">Golen-30mins</option>
+                                <option value="Diamond-30mins">Diamond-30mins</option>
+                                <option value="Diamond-45mins">Diamond-45mins</option>
+                                <option value="Diamond-1hr">Diamond-1hr</option>
+                                <option value="Dragon-1hr">Dragon-1hr</option>
+                                <option value="test">test</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="room" class="form-label">Room</label>
+                            <select id="room" class="form-select form-select-lg">
+                                <option value="">Select</option>
+                                <option value="1">Room 1</option>
+                                <option value="2">Room 2</option>
+                                <option value="3">Room 3</option>
+                                <option value="4">Room 4</option>
+                                <option value="5">Room 5</option>
+                                <option value="6">Room 6</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="payment" class="form-label">Payment</label>
+                            <select id="payment" class="form-select form-select-lg">
+                                <option value="">Select</option>
+                                <option value="cash">Cash</option>
+                                <option value="card">Card</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-lg btn-primary w-100" id="addSession">Add Job</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sessions Table -->
+        <h3>All Jobs List</h3>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Girl</th>
+                    <th>Duration</th>
+                    <th>Room</th>
+                    <th>Payment</th>
+                    <th>Total Fee</th>
+                    <th>Room Fee</th>
+                    <th>Girl Fee</th>
+                    <th>Countdown</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="sessionTable"></tbody>
+        </table>
+
+        <!-- Report -->
+        <h3>Report</h3>
+        <p><strong>Total Cash in Hand:</strong> <span id="totalCash">0</span></p>
+        <p><strong>Total Girls' Salaries:</strong> <span id="totalSalaries">0</span></p>
+        <p><strong>Remaining Cash in Hand:</strong> <span id="remainingBalance">0</span></p>
+        <p><strong>Total Room Earnings:</strong> <span id="roomEarnings">0</span></p>
+
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Girl</th>
+                    <th>Total Salary</th>
+                </tr>
+            </thead>
+            <tbody id="salaryTable"></tbody>
+        </table>
+
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit Job</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editForm">
+                            <div class="mb-3">
+                                <label for="editGirl" class="form-label">Girl</label>
+                                <select id="editGirl" class="form-select">
+                                    <option value="Tina-china">Tina-china</option>
+                                    <option value="Candy-china">Candy-china</option>
+                                    <option value="Judy-Korea">Judy-Korea</option>
+                                    <option value="Mina-Vietnam">Mina-Vietnam</option>
+                                    <option value="Vivi-Vietnam">Vivi-Vietnam</option>
+                                    <option value="Kelly-HK">Kelly-HK</option>
+                                    <option value="Tiffany-Singapore">Tiffany-Singapore</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editDuration" class="form-label">Duration</label>
+                                <select id="editDuration" class="form-select">
+                                    <option value="Golen-30mins">Golen-30mins</option>
+                                    <option value="Diamond-30mins">Diamond-30mins</option>
+                                    <option value="Diamond-45mins">Diamond-45mins</option>
+                                    <option value="Diamond-1hr">Diamond-1hr</option>
+                                    <option value="Dragon-1hr">Dragon-1hr</option>
+                                    <option value="test">test</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editRoom" class="form-label">Room</label>
+                                <select id="editRoom" class="form-select">
+                                    <option value="1">Room 1</option>
+                                    <option value="2">Room 2</option>
+                                    <option value="3">Room 3</option>
+                                    <option value="4">Room 4</option>
+                                    <option value="5">Room 5</option>
+                                    <option value="6">Room 6</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editPayment" class="form-label">Payment</label>
+                                <select id="editPayment" class="form-select">
+                                    <option value="cash">Cash</option>
+                                    <option value="card">Card</option>
+                                </select>
+                            </div>
+                            <input type="hidden" id="editIndex">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="saveEdit">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <audio id="alertSound" src="beep-01a.mp3" autoplay="false"></audio> -->
+
+    <script>
+        const fees = {
+            'Golen-30mins': { fee: 160, roomFee: 50, girlFee: 110, duration: 30 },
+            'Diamond-30mins': { fee: 170, roomFee: 50, girlFee: 120, duration: 30 },
+            'Diamond-45mins': { fee: 240, roomFee: 70, girlFee: 170, duration: 45 },
+            'Diamond-1hr': { fee: 280, roomFee: 70, girlFee: 210, duration: 60 },
+            'Dragon-1hr': { fee: 310, roomFee: 80, girlFee: 240, duration: 60 },
+            'test': { fee: 20, roomFee: 10, girlFee: 10, duration: 0.1 }
+
+        };
+
+        function loadSessions() {
+            const sessions = JSON.parse(sessionStorage.getItem('sessions')) || [];
+            $('#sessionTable').empty();
+            sessions.forEach((session, index) => {
+                const countdownId = `countdown-${index}`;
+                $('#sessionTable').append(`
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${session.girl}</td>
+                        <td>${session.duration}</td>
+                        <td>${session.room}</td>
+                        <td class="${session.payment === 'card' ? 'text-white bg-info' : ''}">${session.payment}</td>
+                        <td>${session.fee}</td>
+                        <td>${session.roomFee}</td>
+                        <td>${session.girlFee}</td>
+                        <td class="countdown green" id="${countdownId}" data-time="${session.remainingSeconds}">-${Math.floor(session.remainingSeconds / 60)}:${session.remainingSeconds % 60}</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm edit-btn" data-index="${index}" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                            <button class="btn btn-danger btn-sm delete-btn" data-index="${index}">Delete</button>
+                        </td>
+                    </tr>
+                `);
+                startCountdown(countdownId);
+            });
+            updateReport();
+        }
+
+        function updateReport() {
+            const sessions = JSON.parse(sessionStorage.getItem('sessions')) || [];
+            let totalCash = 0, totalSalaries = 0, totalCards = 0;
+            const salaries = {};
+            sessions.forEach(session => {
+                if (session.payment === 'cash') totalCash += session.fee;
+                totalSalaries += session.girlFee;
+                if (session.payment === 'card') totalCards += session.fee;
+                salaries[session.girl] = (salaries[session.girl] || 0) + session.girlFee;
+            });
+            $('#totalCash').text(totalCash + 300 + "(包含备用金300)");
+            $('#totalSalaries').text(totalSalaries);
+            $('#remainingBalance').text(totalCash - totalSalaries + 300 + "(包含备用金300)");
+            $('#roomEarnings').text(totalCash - totalSalaries + totalCards + "(不算备用金，不算接线工资)");
+
+            $('#salaryTable').empty();
+            for (const [girl, salary] of Object.entries(salaries)) {
+                $('#salaryTable').append(`<tr><td>${girl}</td><td>${salary}</td></tr>`);
+            }
+        }
+
+        function startCountdown(id) {
+            const $countdown = $(`#${id}`);
+            let remainingSeconds = parseInt($countdown.data('time'));
+
+            const interval = setInterval(() => {
+                if (remainingSeconds <= 0) {
+                    $countdown.text('0:00').removeClass('green yellow').addClass('red');
+                    // $('#alertSound')[0].play();
+                    clearInterval(interval);
+                    return;
+                }
+                const minutes = Math.floor(remainingSeconds / 60);
+                const seconds = remainingSeconds % 60;
+                $countdown.text(`${minutes}:${seconds < 10 ? '0' : ''}${seconds}`);
+                if (remainingSeconds <= 5 * 60 && !$countdown.hasClass('yellow')) {
+                    $countdown.removeClass('green').addClass('yellow');
+                }
+                remainingSeconds--;
+                $countdown.data('time', remainingSeconds);
+
+                // Save updated countdown to sessionStorage
+                const sessions = JSON.parse(sessionStorage.getItem('sessions'));
+                const index = id.split('-')[1];
+                sessions[index].remainingSeconds = remainingSeconds;
+                sessionStorage.setItem('sessions', JSON.stringify(sessions));
+            }, 1000);
+        }
+
+        function addSession() {
+            const girl = $('#girl').val();
+            const duration = $('#duration').val();
+            const room = $('#room').val();
+            const payment = $('#payment').val();
+            if (!girl || !duration || !room || !payment) return alert('Please fill all fields.');
+
+            const feeData = fees[duration];
+            const session = {
+                girl,
+                duration,
+                room,
+                payment,
+                fee: feeData.fee,
+                roomFee: feeData.roomFee,
+                girlFee: feeData.girlFee,
+                remainingSeconds: feeData.duration * 60
+            };
+
+            const sessions = JSON.parse(sessionStorage.getItem('sessions')) || [];
+            sessions.push(session);
+            sessionStorage.setItem('sessions', JSON.stringify(sessions));
+            loadSessions();
+        }
+
+        function deleteSession(index) {
+            const sessions = JSON.parse(sessionStorage.getItem('sessions')) || [];
+            sessions.splice(index, 1);
+            sessionStorage.setItem('sessions', JSON.stringify(sessions));
+            loadSessions();
+        }
+
+        $(document).ready(() => {
+            loadSessions();
+            $('#addSession').on('click', addSession);
+            $(document).on('click', '.delete-btn', function () {
+                deleteSession($(this).data('index'));
+            });
+            $(document).on('click', '.edit-btn', function () {
+                const index = $(this).data('index');
+                const sessions = JSON.parse(sessionStorage.getItem('sessions')) || [];
+                const session = sessions[index];
+
+                $('#editGirl').val(session.girl);
+                $('#editDuration').val(session.duration);
+                $('#editRoom').val(session.room);
+                $('#editPayment').val(session.payment);
+                $('#editIndex').val(index);
+            });
+
+            $('#saveEdit').on('click', function () {
+                const index = $('#editIndex').val();
+                const sessions = JSON.parse(sessionStorage.getItem('sessions')) || [];
+                const session = sessions[index];
+
+                const newDuration = $('#editDuration').val();
+                const feeData = fees[newDuration];
+
+                session.girl = $('#editGirl').val();
+                session.duration = newDuration;
+                session.room = $('#editRoom').val();
+                session.payment = $('#editPayment').val();
+                session.fee = feeData.fee;
+                session.roomFee = feeData.roomFee;
+                session.girlFee = feeData.girlFee;
+                session.remainingSeconds = feeData.duration * 60;
+
+                sessions[index] = session;
+                sessionStorage.setItem('sessions', JSON.stringify(sessions));
+                $('#editModal').modal('hide');
+                loadSessions();
+            });
+
+
+
+        });
+    </script>
+</body>
+
+</html>
