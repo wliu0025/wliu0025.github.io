@@ -48,10 +48,12 @@ function loadSessions() {
 function startCountdown(id) {
     const $countdown = $(`#${id}`);
     let remainingSeconds = parseInt($countdown.data('time'));
-    const sessions = JSON.parse(sessionStorage.getItem('sessions'));
-    const index = id.split('-')[1];
+    
 
     const interval = setInterval(() => {
+        const sessions = JSON.parse(sessionStorage.getItem('sessions'));
+        const index = id.split('-')[1];
+
         if (remainingSeconds <= 0) {
             if(!sessions[index].isFinish) $countdown.text('0:00').removeClass('green yellow').addClass('red');
             
@@ -110,21 +112,17 @@ function addSession() {
         room,
         payment,
         fee: feeData.fee-discount,
+        discount: parseInt(discount),
         roomFee: feeData.roomFee-discount/2,
         girlFee: feeData.girlFee-discount/2,
-
         startTime,
         endTime,
         remainingSeconds: feeData.duration * 60,
-        
         isFinish,
-        
         cashAmount,
         cardAmount
-
     };
     
-
     const sessions = JSON.parse(sessionStorage.getItem('sessions')) || [];
     sessions.push(session);
     sessionStorage.setItem('sessions', JSON.stringify(sessions));
@@ -195,6 +193,9 @@ $(document).ready(() => {
         $('#editRoom').val(session.room);
         $('#editPayment').val(session.payment);
         $('#editIndex').val(index);
+        $('#editDiscount').val(session.discount);
+        $('#editCashAmount').val(session.cashAmount);
+        $('#editCardAmount').val(session.cardAmount);
     });
 
     // 3.2 Click "Save" button on edit model
@@ -210,11 +211,13 @@ $(document).ready(() => {
         session.duration = newDuration;
         session.room = $('#editRoom').val();
         session.payment = $('#editPayment').val();
-        session.fee = feeData.fee;
-        session.roomFee = feeData.roomFee;
-        session.girlFee = feeData.girlFee;
+        session.discount=$('#editDiscount').val();
+        session.fee = feeData.fee-session.discount;
+        session.roomFee = feeData.roomFee-session.discount/2;
+        session.girlFee = feeData.girlFee-session.discount/2;
         session.remainingSeconds = feeData.duration * 60;
-
+        session.cashAmount=$('#editCashAmount').val();
+        session.cardAmount=$('#editCardAmount').val();
         sessions[index] = session;
         sessionStorage.setItem('sessions', JSON.stringify(sessions));
         $('#editModal').modal('hide');
@@ -234,16 +237,15 @@ $(document).ready(() => {
         const $countdown = $(`#${countdownId}`);
         $countdown.text('')
         $countdown.parent().addClass('table-success');
-
-        // Stop the countdown
-        clearInterval($countdown.data('interval-id'));
-
         // Optionally, update the session's remainingSeconds in sessionStorage
         session.remainingSeconds = 0;
         session.isFinish = true;
         sessionStorage.setItem('sessions', JSON.stringify(sessions));
 
-        loadSessions();
+        // Stop the countdown
+        clearInterval($countdown.data('interval-id'));
+
+        // loadSessions();
 
     });
 

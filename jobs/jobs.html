@@ -52,7 +52,7 @@
                             <label for="duration" class="form-label">Duration多久</label>
                             <select id="duration" class="form-select form-select-lg">
                                 <option value="">Select</option>
-                                <option value="Golen-30mins">Golen-30mins</option>
+                                <option value="Golden-30mins">Golden-30mins</option>
                                 <option value="Diamond-30mins">Diamond-30mins</option>
                                 <option value="Diamond-45mins">Diamond-45mins</option>
                                 <option value="Diamond-1hr">Diamond-1hr</option>
@@ -205,6 +205,24 @@
                                     <option value="cash_card">Cash & Card</option>
                                 </select>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="editDiscount" class="form-label">Discount折扣</label>
+                                <input id="editDiscount" class="form-control form-control-lg" value="0" type="number" min="0" max="100" step="5"></input>
+                            </div>
+    
+                            
+                            <div class="mb-3">
+                                <label for="editCashAmount" class="form-label">Cash现金给了多少</label>
+                                <input id="editCashAmount" class="form-control form-control-lg" type="number"></input>
+                            </div>
+    
+                            <div class="mb-3">
+                                <label for="editCardAmount" class="form-label">Card刷了多少</label>
+                                <input id="editCardAmount" class="form-control form-control-lg" type="number"></input>
+                            </div>
+
+
                             <input type="hidden" id="editIndex">
                         </form>
                     </div>
