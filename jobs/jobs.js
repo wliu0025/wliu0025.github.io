@@ -157,7 +157,18 @@ function updateReport() {
 
 
 $(document).ready(() => {
+    // Initial load
     loadSessions();
+    loadGirls(); 
+
+    // manage girls
+    $('#addGirl').on('click', addGirl);
+
+    $(document).on('click', '.delete-girl', function () {
+        const index = $(this).data('index');
+        deleteGirl(index);
+    });
+
 
     // Payment method
     $('#payment').on('change', function () {

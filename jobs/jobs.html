@@ -38,14 +38,14 @@
                         <div class="col-md-3">
                             <label for="girl" class="form-label">Girl女孩</label>
                             <select id="girl" class="form-select form-select-lg">
-                                <option value="">Select</option>
+                                <!-- <option value="">Select</option>
                                 <option value="Tina-china">Tina-china</option>
                                 <option value="Candy-china">Candy-china</option>
                                 <option value="Judy-Korea">Judy-Korea</option>
                                 <option value="Mina-Vietnam">Mina-Vietnam</option>
                                 <option value="Vivi-Vietnam">Vivi-Vietnam</option>
                                 <option value="Kelly-HK">Kelly-HK</option>
-                                <option value="Tiffany-Singapore">Tiffany-Singapore</option>
+                                <option value="Tiffany-Singapore">Tiffany-Singapore</option> -->
                             </select>
                         </div>
                         <div class="col-md-3">
@@ -142,6 +142,8 @@
 
         <br>
         <br>
+        <hr>
+        <h1 class="text-center mb-4">女孩管理</h1>
         <h3>Girls Salary女孩工资</h3>
         <table class="table table-bordered table-hover mb-5">
             <thead>
@@ -152,6 +154,36 @@
             </thead>
             <tbody id="salaryTable"></tbody>
         </table>
+
+       
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">Manage Girls</h3>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="newGirlName" class="form-label">New Girl Name</label>
+                        <input type="text" id="newGirlName" class="form-control" placeholder="Enter girl's name">
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" id="addGirl" class="btn btn-danger mt-4 w-100">Add Girl</button>
+                    </div>
+                </div>
+                <h4>Girls List</h4>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="girlsList"></tbody>
+                </table>
+            </div>
+        </div>
+        
+
 
 
         <!-- Edit Modal -->
@@ -167,13 +199,13 @@
                             <div class="mb-3">
                                 <label for="editGirl" class="form-label">Girl</label>
                                 <select id="editGirl" class="form-select">
-                                    <option value="Tina-china">Tina-china</option>
+                                    <!-- <option value="Tina-china">Tina-china</option>
                                     <option value="Candy-china">Candy-china</option>
                                     <option value="Judy-Korea">Judy-Korea</option>
                                     <option value="Mina-Vietnam">Mina-Vietnam</option>
                                     <option value="Vivi-Vietnam">Vivi-Vietnam</option>
                                     <option value="Kelly-HK">Kelly-HK</option>
-                                    <option value="Tiffany-Singapore">Tiffany-Singapore</option>
+                                    <option value="Tiffany-Singapore">Tiffany-Singapore</option> -->
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -240,6 +272,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="jobs.js"></script>
+    <script src="girls.js"></script>
 </body>
 
 </html>
