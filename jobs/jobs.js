@@ -1,10 +1,10 @@
-const fees = {
-    'Golden-30mins': { fee: 160, roomFee: 50, girlFee: 110, duration: 30 },
-    'Diamond-30mins': { fee: 170, roomFee: 50, girlFee: 120, duration: 30 },
-    'Diamond-45mins': { fee: 240, roomFee: 70, girlFee: 170, duration: 45 },
-    'Diamond-1hr': { fee: 280, roomFee: 70, girlFee: 210, duration: 60 },
-    'Dragon-1hr': { fee: 310, roomFee: 80, girlFee: 240, duration: 60 },
-};
+// const fees = {
+//     'Golden-30mins': { fee: 160, roomFee: 50, girlFee: 110, duration: 30 },
+//     'Diamond-30mins': { fee: 170, roomFee: 50, girlFee: 120, duration: 30 },
+//     'Diamond-45mins': { fee: 240, roomFee: 70, girlFee: 170, duration: 45 },
+//     'Diamond-1hr': { fee: 280, roomFee: 70, girlFee: 210, duration: 60 },
+//     'Dragon-1hr': { fee: 310, roomFee: 80, girlFee: 240, duration: 60 },
+// };
 
 // render the jobs list
 function loadSessions() {
@@ -94,6 +94,7 @@ function addSession() {
 
     if (!girl || !duration || !room || !payment) return alert('Please fill girl,duration,room,payment fields.');
 
+    const fees = getFeesFromLocalStorage();
     const feeData = fees[duration];
     if(payment=='cash') cashAmount=feeData.fee-discount;
     else if(payment=='card') cardAmount=feeData.fee-discount;
@@ -140,14 +141,13 @@ function updateReport() {
         totalHouseProfits += parseInt(session.roomFee);
         salaries[session.girl] = parseInt(salaries[session.girl] || 0) + parseInt(session.girlFee);
     });
-    $('#totalCash').text(`$${totalCashInHand + 300} (包含备用金300)`);
+    $('#totalCash').text(`$${totalCashInHand} (不包含备用金)`);
     $('#totalCard').text("$"+totalPaidCards);
     $('#totalSalaries').text("$"+totalGirlsSalaries);
-    let remainingBalance=totalCashInHand - totalGirlsSalaries + 300
-    $('#remainingBalance').text(`$${remainingBalance} (包含备用金300)`);
+    let remainingBalance=totalCashInHand - totalGirlsSalaries
+    $('#remainingBalance').text(`$${remainingBalance} (不包含备用金)`);
     // $('#roomEarnings').text(`$${totalCashInHand - totalGirlsSalaries + totalPaidCards} (包含接线工资)`);
     $('#roomEarnings').text(`$${totalHouseProfits} (包含接线工资)`);
-
 
     $('#salaryTable').empty();
     for (const [girl, salary] of Object.entries(salaries)) {
@@ -160,6 +160,24 @@ $(document).ready(() => {
     // Initial load
     loadSessions();
     loadGirls(); 
+    loadServices();
+
+    // manage services
+    $('#addService').on('click', addService);
+
+    $(document).on('click', '.delete-service', function () {
+        const index = $(this).data('index');
+        deleteService(index);
+    });
+
+    $(document).on('click', '.edit-service', function () {
+        const index = $(this).data('index');
+        editService(index);
+    });
+
+    $('#saveEditService').on('click', saveEditService);
+
+
 
     // manage girls
     $('#addGirl').on('click', addGirl);
@@ -187,6 +205,7 @@ $(document).ready(() => {
     $('#addSession').on('click', addSession);
     // 2.Delete a job
     $(document).on('click', '.delete-btn', function () {
+        if(!confirm("要删除这个工吗?")) return;
         const index = $(this).data('index')
         const sessions = JSON.parse(sessionStorage.getItem('sessions')) || [];
         sessions.splice(index, 1);
@@ -216,6 +235,8 @@ $(document).ready(() => {
         const session = sessions[index];
 
         const newDuration = $('#editDuration').val();
+
+        const fees = getFeesFromLocalStorage();
         const feeData = fees[newDuration];
 
         session.girl = $('#editGirl').val();

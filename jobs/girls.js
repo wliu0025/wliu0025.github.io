@@ -45,6 +45,7 @@ function addGirl() {
 
 // Delete a girl
 function deleteGirl(index) {
+    if(!confirm("要删除这个女孩吗?")) return;
     const girls = JSON.parse(localStorage.getItem('girls')) || [];
     girls.splice(index, 1);
     localStorage.setItem('girls', JSON.stringify(girls));
