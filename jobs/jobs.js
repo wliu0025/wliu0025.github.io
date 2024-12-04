@@ -1,5 +1,5 @@
 const fees = {
-    'Golen-30mins': { fee: 160, roomFee: 50, girlFee: 110, duration: 30 },
+    'Golden-30mins': { fee: 160, roomFee: 50, girlFee: 110, duration: 30 },
     'Diamond-30mins': { fee: 170, roomFee: 50, girlFee: 120, duration: 30 },
     'Diamond-45mins': { fee: 240, roomFee: 70, girlFee: 170, duration: 45 },
     'Diamond-1hr': { fee: 280, roomFee: 70, girlFee: 210, duration: 60 },
@@ -18,7 +18,7 @@ function loadSessions() {
                 <td>${session.girl}</td>
                 <td>${session.duration}</td>
                 <td>${session.room}</td>
-                <td class="${session.payment == 'card' || session.payment == 'cash_card' ? 'text-info' : ''}">${session.payment}</td>
+                <td><span class="${session.payment == 'card' || session.payment == 'cash_card' ? 'badge text-bg-warning' : ''}">${session.payment}</span></td>
                 
                 <td>${session.fee}</td>
                 <td>${session.cashAmount== 0 ? '':session.cashAmount}</td>
